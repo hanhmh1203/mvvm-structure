@@ -15,17 +15,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-//        var intent: Intent? = null
-//        try {
-//            intent = Intent(
-//                this,
-//                Class.forName("com.example.feature.FeatureNavActivity")
-//            )
-//            startActivity(intent)
-//        } catch (e: ClassNotFoundException) {
-//            e.printStackTrace()
-//        }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
