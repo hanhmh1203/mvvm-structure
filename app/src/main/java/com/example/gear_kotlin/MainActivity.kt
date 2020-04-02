@@ -15,22 +15,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
-//        fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                    .setAction("Action", null).show()
+//        var intent: Intent? = null
+//        try {
+//            intent = Intent(
+//                this,
+//                Class.forName("com.example.feature.FeatureNavActivity")
+//            )
+//            startActivity(intent)
+//        } catch (e: ClassNotFoundException) {
+//            e.printStackTrace()
 //        }
 
-        var intent: Intent? = null
-        try {
-            intent = Intent(
-                this,
-                Class.forName("com.example.feature.FeatureNavActivity")
-            )
-            startActivity(intent)
-        } catch (e: ClassNotFoundException) {
-            e.printStackTrace()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

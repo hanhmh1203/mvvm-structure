@@ -23,6 +23,30 @@
 
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/ThirdFragment" />
+        <argument
+            android:name="param_int"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="param_str"
+            app:argType="string"
+            android:defaultValue="string" />
+        <argument
+            android:name="param_object"
+            app:argType="com.example.core.UserModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/ThirdFragment"
+        android:name="com.example.gear_kotlin.ThirdFragment"
+        android:label="ThirdFragment"
+        tools:layout="@layout/fragment_third">
+
+        <action
+            android:id="@+id/action_ThirdFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
 </navigation>
