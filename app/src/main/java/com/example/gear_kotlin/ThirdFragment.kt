@@ -12,9 +12,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.core.UserModel
+import com.example.gear_kotlin.base.BaseFragment
 
 
-class ThirdFragment : Fragment() {
+class ThirdFragment : BaseFragment() {
 
     companion object {
         fun newInstance() = ThirdFragment()
@@ -49,4 +50,20 @@ class ThirdFragment : Fragment() {
             viewModel.setUserName("hanhmh1203 $increase")
         }
     }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i("ThirdFragment","onStop user value ${viewModel.user.value!!.userName}")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("ThirdFragment"," onDestroy user value ${viewModel.user.value!!.userName}")
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.i("ThirdFragment"," onDetach user value ${viewModel.user.value!!.userName}")
+    }
+
 }

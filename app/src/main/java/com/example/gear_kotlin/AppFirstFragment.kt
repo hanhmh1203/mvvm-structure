@@ -8,11 +8,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.example.core.UserModel
+import com.example.gear_kotlin.base.BaseFragment
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class AppFirstFragment : Fragment() {
+class AppFirstFragment : BaseFragment() {
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -32,4 +33,5 @@ class AppFirstFragment : Fragment() {
             findNavController().navigate(action)
         }
     }
+
 }

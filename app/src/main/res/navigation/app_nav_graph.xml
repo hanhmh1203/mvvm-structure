@@ -22,6 +22,8 @@
         tools:layout="@layout/fragment_second">
 
         <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/SecondFragment"
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/ThirdFragment" />
         <argument
@@ -46,6 +48,7 @@
         tools:layout="@layout/fragment_third">
 
         <action
+
             android:id="@+id/action_ThirdFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
     </fragment>
