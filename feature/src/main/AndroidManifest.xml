@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.feature">
+
+    <application>
+        <activity
+            android:name=".FeatureNavActivity"
+            android:label="@string/title_activity_feature_nav"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+    </application>
+
+</manifest>
