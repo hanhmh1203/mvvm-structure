@@ -7,12 +7,20 @@ import com.example.core.UserModel
 class ThirdFragmentViewModel : ViewModel() {
     // TODO: Implement the ViewModel
     var user = MutableLiveData<UserModel>()
-    fun setUserName(ortherName: String) {
-        user.value!!.userName = ortherName
+
+    /**
+     * postValue used in Background thread
+     *
+     */
+    fun setUserName(otherName: String) {
+        user.value!!.userName = otherName
         user.postValue(user.value)
     }
-    fun setUserNameWithOut(ortherName: String) {
-        user.value = UserModel(ortherName)
 
+    /**
+     * used in UI thread
+     */
+    fun setUserNameWithOut(otherName: String) {
+        user.value = UserModel(otherName)
     }
 }
