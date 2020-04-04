@@ -1,29 +1,20 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply from: '../android_commons.gradle'
 apply plugin: 'androidx.navigation.safeargs'
 apply plugin: "kotlin-kapt"
 
-android {
-    compileSdkVersion rootProject.compileSdkVersion
-    defaultConfig {
-        minSdkVersion rootProject.minSdkVersion
-        targetSdkVersion rootProject.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
-    }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
+android {
 
 // To inline the bytecode built with JVM target 1.8 into
 // bytecode that is being built with JVM target 1.6. (e.g. navArgs)
-
-
+    defaultConfig {
+        applicationId ApplicationId.id
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    dataBinding {
+        enabled true
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -31,39 +22,27 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
 }
 
 dependencies {
-    implementation project(':libraries')
-    implementation project(':commons')
-    implementation project(':core')
+    implementation project(Modules.libraries)
+    implementation project(Modules.common)
+    implementation project(Modules.core)
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-
-    implementation "androidx.core:core-ktx:$rootProject.coreVersion"
-
+    // ANDROID
+    implementation AndroidLibraries.appCompat
+    implementation AndroidLibraries.navigation
+    implementation AndroidLibraries.navigationFrag
+    implementation AndroidLibraries.coreKtx
+    implementation KotlinLibraries.kotlinCoroutineCore
     // UI
-    implementation "androidx.activity:activity-ktx:$rootProject.activityVersion"
-    implementation "androidx.appcompat:appcompat:$rootProject.appcompatVersion"
-    implementation "androidx.fragment:fragment-ktx:$rootProject.fragmentVersion"
-    implementation "androidx.cardview:cardview:$rootProject.cardviewVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
-    implementation "androidx.drawerlayout:drawerlayout:$rootProject.drawerLayoutVersion"
-    implementation "com.google.android.material:material:$rootProject.materialVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifeCycleViewmodelKtxVersion"
-
-    // Architecture Components
-    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycleVersion"
-
-    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.lifecycleVersion"
-//    testImplementation "androidx.arch.core:core-testing:$rootProject.archTestingVersion"
-    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
-    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
-
-    implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
-
-    // Kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
+    implementation AndroidLibraries.activityKtx
+    implementation AndroidLibraries.appCompat
+    implementation AndroidLibraries.fragmentKtx
+    implementation AndroidLibraries.constraintLayout
+    implementation AndroidLibraries.lifecycleViewModel
+    implementation AndroidLibraries.lifecycleExtensions
+    implementation AndroidLibraries.recyclerView
 
 }
