@@ -1,4 +1,4 @@
-package com.example.gear_kotlin.base
+package com.example.commons.base
 
 import android.content.Context
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-open class BaseFragment: Fragment() {
+open class BaseFragment:Fragment() {
     fun log(str: String){
         Log.i(this::class.java.name, str);
     }

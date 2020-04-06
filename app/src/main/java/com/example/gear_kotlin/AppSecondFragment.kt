@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.gear_kotlin.base.BaseFragment
+import com.example.commons.base.BaseFragment
 
 
 /**

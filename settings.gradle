@@ -1,6 +1,3 @@
-rootProject.name='Gear_kotlin'
-include ':app'
-include ':libraries'
-include ':core'
-include ':commons'
-//include ':feature'
+rootProject.name="Gear_kotlin"
+include ':commons',':core',':libraries',':app'
+include ':model'

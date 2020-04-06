@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import com.example.commons.base.BaseFragment
 import com.example.core.UserModel
-import com.example.gear_kotlin.base.BaseFragment
+
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
