@@ -22,12 +22,16 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+
+
 }
 
 dependencies {
     implementation project(Modules.libraries)
     implementation project(Modules.common)
     implementation project(Modules.core)
+    implementation project(Modules.model)
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     // ANDROID

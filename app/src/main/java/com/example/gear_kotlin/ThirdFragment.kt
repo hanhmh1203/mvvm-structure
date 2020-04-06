@@ -6,61 +6,51 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
+
 import androidx.lifecycle.Observer
-import com.example.core.UserModel
+
 import com.example.commons.base.BaseFragment
+import com.example.gear_kotlin.databinding.FragmentThirdBinding
+
 
 
 class ThirdFragment : BaseFragment() {
 
-    companion object {
-        fun newInstance() = ThirdFragment()
-    }
-
-    private lateinit var viewModel: ThirdFragmentViewModel
-
+    private  lateinit var viewModel: ThirdFragmentViewModel
+    private lateinit var binding : FragmentThirdBinding // generate by layout name
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_third, container, false)
+        binding = FragmentThirdBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ThirdFragmentViewModel::class.java)
-        viewModel.user.value = UserModel("hanhmh1203")
+        binding.viewModel = viewModel
         viewModel.user.observe(viewLifecycleOwner, Observer {
-            Log.i("ThirdFragment","user value ${viewModel.user.value!!.userName}")
+            Log.i("ThirdFragment","user value ${viewModel.user.value!!.name}")
+            binding.viewModel = viewModel
         })
-
         // TODO: Use the ViewModel
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        var increase =0
-        view.findViewById<Button>(R.id.button_second).setOnClickListener {
-            increase++
-//            viewModel.setUserNameWithOut("hanhmh1203 $increase")
-            viewModel.setUserName("hanhmh1203 $increase")
-        }
     }
 
     override fun onStop() {
         super.onStop()
-        Log.i("ThirdFragment","onStop user value ${viewModel.user.value!!.userName}")
+        Log.i("ThirdFragment","onStop user value ${viewModel.user.value!!.name}")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i("ThirdFragment"," onDestroy user value ${viewModel.user.value!!.userName}")
+        Log.i("ThirdFragment"," onDestroy user value ${viewModel.user.value!!.name}")
     }
 
     override fun onDetach() {
         super.onDetach()
-        Log.i("ThirdFragment"," onDetach user value ${viewModel.user.value!!.userName}")
+        Log.i("ThirdFragment"," onDetach user value ${viewModel.user.value!!.name}")
     }
 
 }

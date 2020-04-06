@@ -7,6 +7,7 @@ object Modules {
     const val common = ":commons"
     const val core = ":core"
     const val libraries = ":libraries"
+    const val model = ":model"
 }
 
 object Releases {

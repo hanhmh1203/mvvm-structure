@@ -11,4 +11,5 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_commons">commons</string>
     <string name="title_feature">features</string>
+    <string name="title_data">Module Title</string>
 </resources>
