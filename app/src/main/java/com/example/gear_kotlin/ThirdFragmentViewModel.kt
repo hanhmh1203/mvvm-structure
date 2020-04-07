@@ -10,6 +10,10 @@ import com.example.model.User
 class ThirdFragmentViewModel : ViewModel() {
     // TODO: Implement the ViewModel
     var user = MutableLiveData<User>()
+    val db = Room.databaseBuilder(
+        applicationContext,
+        AppDatabase::class.java, "database-name"
+    ).build()
     init {
         user.value = User(1, "william")
     }

@@ -33,6 +33,7 @@ dependencies {
     implementation project(Modules.core)
     implementation project(Modules.model)
 
+
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     // ANDROID
     implementation AndroidLibraries.appCompat

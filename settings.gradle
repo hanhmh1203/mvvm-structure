@@ -1,3 +1,5 @@
 rootProject.name="Gear_kotlin"
 include ':commons',':core',':libraries',':app'
 include ':model'
+include ':local'
+include ':repository'

@@ -1,0 +1,20 @@
+apply plugin: 'com.android.library'
+apply from: '../android_commons.gradle'
+
+dependencies {
+    // MODULES
+//    implementation project(Modules.remote)
+    implementation project(Modules.localDatabase)
+    api project(Modules.model)
+    // ANDROID
+    implementation KotlinLibraries.kotlinCoroutineCore
+    implementation AndroidLibraries.kotlinCoroutineAndroid
+    implementation AndroidLibraries.lifecycleExtensions
+
+    // TESTS
+//    testImplementation TestLibraries.junit
+//    testImplementation TestLibraries.mock
+//    testImplementation TestLibraries.archCoreTest
+//    testImplementation TestLibraries.coroutine
+//    testImplementation project(Modules.commonTest)
+}

@@ -8,6 +8,7 @@ object Modules {
     const val core = ":core"
     const val libraries = ":libraries"
     const val model = ":model"
+    const val localDatabase = ":local"
 }
 
 object Releases {
@@ -39,7 +40,7 @@ object Versions {
     const val timber = "4.7.1"
     const val lifecycle = "2.2.0"
     const val navigation = "2.2.1"
-    const val room = "2.1.0-alpha06"
+    const val room = "2.2.5"
     const val recyclerview = "1.1.0"
     const val glide = "4.9.0"
     const val mockwebserver = "2.7.5"
