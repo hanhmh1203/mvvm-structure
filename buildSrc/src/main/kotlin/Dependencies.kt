@@ -9,6 +9,7 @@ object Modules {
     const val libraries = ":libraries"
     const val model = ":model"
     const val localDatabase = ":local"
+    const val repository = ":repository"
 }
 
 object Releases {

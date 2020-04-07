@@ -5,15 +5,14 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.core.UserModel
+import com.example.local.dao.UserDaoIn
 import com.example.model.User
 
 class ThirdFragmentViewModel : ViewModel() {
     // TODO: Implement the ViewModel
+    var users = MutableLiveData<List<User>>()
     var user = MutableLiveData<User>()
-//    val db = Room.databaseBuilder(
-//        applicationContext,
-//        AppDatabase::class.java, "database-name"
-//    ).build()
+    lateinit var daoIn: UserDaoIn
     init {
         user.value = User(1, "william")
     }

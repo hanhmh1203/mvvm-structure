@@ -7,10 +7,13 @@ import com.example.local.dao.UserDaoIn
 import com.example.model.User
 
 class UserRepository(private val dao: UserDaoIn) {
-    fun getAllUser(): LiveData<List<User>> {
+    fun getAllUser(): MutableLiveData<List<User>> {
         val data = MutableLiveData<List<User>>()
-        data.value = dao.getAll()
+        data.postValue(dao.getAll())
         return data
+    }
+    fun getAllUserList(): List<User> {
+        return dao.getAll()
     }
     fun insert(user: User){
         dao.insert(user)
@@ -18,9 +21,12 @@ class UserRepository(private val dao: UserDaoIn) {
     fun delete(user: User){
         dao.delete(user)
     }
+    fun deleteAll(){
+        dao.deleteAll()
+    }
     fun getUserDummy(): List<User>{
         val users = arrayListOf<User>()
-        listOf<Int>(5).forEach {
+        listOf<Int>(1,2,3,4,5).forEach {
             users.add(User(it, "hanh $it",  address = "HCM $it", phoneNumber = "090 $it" ))
         }
         return users
