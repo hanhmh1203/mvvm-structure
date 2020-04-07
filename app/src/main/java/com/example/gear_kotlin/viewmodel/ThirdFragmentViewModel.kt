@@ -1,4 +1,4 @@
-package com.example.gear_kotlin
+package com.example.gear_kotlin.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

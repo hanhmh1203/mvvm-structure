@@ -1,4 +1,4 @@
-package com.example.gear_kotlin
+package com.example.gear_kotlin.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.*
 
 import com.example.commons.base.BaseFragment
+import com.example.gear_kotlin.viewmodel.ThirdFragmentViewModel
 import com.example.gear_kotlin.databinding.FragmentThirdBinding
 import com.example.local.AppDatabase
 import com.example.local.dao.UserDao

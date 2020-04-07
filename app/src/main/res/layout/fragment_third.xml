@@ -5,12 +5,12 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.gear_kotlin.ThirdFragmentViewModel" />
+            type="com.example.gear_kotlin.viewmodel.ThirdFragmentViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ThirdFragment">
+        tools:context=".ui.ThirdFragment">
 
         <TextView
             android:id="@+id/tvId"

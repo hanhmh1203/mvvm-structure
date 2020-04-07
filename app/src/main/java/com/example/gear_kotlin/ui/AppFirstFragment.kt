@@ -1,4 +1,4 @@
-package com.example.gear_kotlin
+package com.example.gear_kotlin.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.example.commons.base.BaseFragment
+import com.example.gear_kotlin.R
 import com.example.model.User
 
 

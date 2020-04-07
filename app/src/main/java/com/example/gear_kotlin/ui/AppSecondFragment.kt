@@ -1,4 +1,4 @@
-package com.example.gear_kotlin
+package com.example.gear_kotlin.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +10,7 @@ import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.commons.base.BaseFragment
+import com.example.gear_kotlin.R
 
 
 /**

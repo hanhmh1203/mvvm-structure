@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.gear_kotlin.AppFirstFragment"
+        android:name="com.example.gear_kotlin.ui.AppFirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/app_fragment_first">
 
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.gear_kotlin.AppSecondFragment"
+        android:name="com.example.gear_kotlin.ui.AppSecondFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/ThirdFragment"
-        android:name="com.example.gear_kotlin.ThirdFragment"
+        android:name="com.example.gear_kotlin.ui.ThirdFragment"
         android:label="ThirdFragment"
         tools:layout="@layout/fragment_third">
 
