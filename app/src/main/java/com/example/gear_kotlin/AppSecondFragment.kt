@@ -33,7 +33,7 @@ class AppSecondFragment : BaseFragment() {
         val user = safeArgs.paramObject
         Log.i("AppSecondFragment", "param_int $paramInt");
         Log.i("AppSecondFragment", "param_str $paramStr");
-        Log.i("AppSecondFragment", "param_obj ${user!!.userName}");
+        Log.i("AppSecondFragment", "param_obj ${user!!.name}");
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

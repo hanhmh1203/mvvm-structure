@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import com.example.commons.base.BaseFragment
-import com.example.core.UserModel
+import com.example.model.User
 
 
 /**
@@ -28,8 +28,8 @@ class AppFirstFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         val param1 = 101
         val param2 = this::class.java.name
-        val user= UserModel(userName = "hanhmh1203")
-        val  action = AppFirstFragmentDirections.actionFirstFragmentToSecondFragment().setParamInt(param1).setParamStr(param2).setParamObject(user)
+        val user= User(name = "hanhmh1203")
+        val  action = AppFirstFragmentDirections.actionFirstFragmentToSecondFragment(user).setParamInt(param1).setParamStr(param2)
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
             findNavController().navigate(action)
         }

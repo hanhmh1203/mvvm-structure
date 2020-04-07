@@ -5,11 +5,12 @@ dependencies {
     // MODULES
 //    implementation project(Modules.remote)
     implementation project(Modules.localDatabase)
-    api project(Modules.model)
+    implementation project(Modules.model)
     // ANDROID
     implementation KotlinLibraries.kotlinCoroutineCore
     implementation AndroidLibraries.kotlinCoroutineAndroid
     implementation AndroidLibraries.lifecycleExtensions
+    implementation AndroidLibraries.liveDataKtx
 
     // TESTS
 //    testImplementation TestLibraries.junit

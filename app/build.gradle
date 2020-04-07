@@ -28,9 +28,9 @@ android {
 }
 
 dependencies {
-    implementation project(Modules.libraries)
+//    implementation project(Modules.libraries)
     implementation project(Modules.common)
-    implementation project(Modules.core)
+//    implementation project(Modules.core)
     implementation project(Modules.model)
     implementation project(Modules.localDatabase)
     implementation project(Modules.repository)

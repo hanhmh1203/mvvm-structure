@@ -10,19 +10,18 @@ import androidx.lifecycle.*
 import com.example.commons.base.BaseFragment
 import com.example.gear_kotlin.databinding.FragmentThirdBinding
 import com.example.local.AppDatabase
-import com.example.local.dao.UserDaoIn
-import com.example.model.User
+import com.example.local.dao.UserDao
 import com.example.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
 class ThirdFragment : BaseFragment() {
     lateinit var appDb: AppDatabase
-    lateinit var userDao: UserDaoIn
+    lateinit var userDao: UserDao
     lateinit var repository: UserRepository
+//    private val viewmodelfactory: Viewmodelf
     private lateinit var viewModel: ThirdFragmentViewModel
     private lateinit var binding: FragmentThirdBinding // generate by layout name
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +45,7 @@ class ThirdFragment : BaseFragment() {
         userDao = appDb.userDao()
         repository = UserRepository(userDao)
 
-        viewModel = ViewModelProviders.of(this).get(ThirdFragmentViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ThirdFragmentViewModel::class.java)
         binding.viewModel = viewModel
         viewModel.user.observe(viewLifecycleOwner, Observer {
             Log.i("ThirdFragment", "user value ${viewModel.user.value!!.name}")
@@ -69,7 +68,7 @@ class ThirdFragment : BaseFragment() {
         // TODO: Use the ViewModel
     }
 
-    private fun insert() {
+    private suspend fun insert() {
         repository.getUserDummy().forEach {
             userDao.insert(it)
         }

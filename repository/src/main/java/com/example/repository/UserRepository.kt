@@ -1,27 +1,26 @@
 package com.example.repository
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.local.AppDatabase
-import com.example.local.dao.UserDaoIn
+import com.example.local.dao.UserDao
 import com.example.model.User
 
-class UserRepository(private val dao: UserDaoIn) {
-    fun getAllUser(): MutableLiveData<List<User>> {
+class UserRepository(private val dao: UserDao) {
+    suspend fun getAllUser(): MutableLiveData<List<User>> {
         val data = MutableLiveData<List<User>>()
         data.postValue(dao.getAll())
         return data
     }
-    fun getAllUserList(): List<User> {
+    suspend fun getAllUserList(): List<User> {
         return dao.getAll()
     }
-    fun insert(user: User){
+
+    suspend fun insert(user: User){
         dao.insert(user)
     }
-    fun delete(user: User){
+    suspend fun delete(user: User){
         dao.delete(user)
     }
-    fun deleteAll(){
+    suspend fun deleteAll(){
         dao.deleteAll()
     }
     fun getUserDummy(): List<User>{
@@ -32,3 +31,5 @@ class UserRepository(private val dao: UserDaoIn) {
         return users
     }
 }
+
+

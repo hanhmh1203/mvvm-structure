@@ -5,22 +5,20 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.model.User
+import kotlinx.coroutines.flow.Flow
 
 @Dao
-abstract class UserDao: BaseDao<User>() {
-    override suspend fun insert(users: List<User>) {
-        TODO("Not yet implemented")
-    }
+abstract class UserDao: BaseDao<User> {
 
-    override suspend fun insert(user: User) {
-        TODO("Not yet implemented")
-    }
     @Query("SELECT * FROM User")
-    abstract fun getAll(): List<User>
+    abstract suspend fun getAll(): List<User>
+
+    @Query("SELECT * FROM User")
+    abstract fun getAllByFlow(): Flow<List<User>>
 
     @Insert
-    abstract fun insertAll(vararg users: User)
+    abstract suspend fun insert(vararg users: User)
 
-    @Delete
-    abstract fun delete(user: User)
+    @Query("DELETE FROM User")
+    abstract suspend fun deleteAll()
 }

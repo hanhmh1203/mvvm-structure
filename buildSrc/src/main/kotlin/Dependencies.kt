@@ -27,6 +27,7 @@ object Versions {
     const val coreKtx = "1.1.0"
     const val activityKtx = "1.1.0"
     const val fragmentKtx = "1.2.4"
+    const val liveDataKtx = "2.2.0"
     const val constraintLayout = "1.1.3"
 
     const val androidTestRunner = "1.1.2-alpha02"
@@ -90,6 +91,8 @@ object AndroidLibraries {
     const val navigationFrag = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
+    const val liveDataKtx ="androidx.lifecycle:lifecycle-livedata-ktx:${Versions.liveDataKtx}"
+
 }
 
 object TestLibraries {

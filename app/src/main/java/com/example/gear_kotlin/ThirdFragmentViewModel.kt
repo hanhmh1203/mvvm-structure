@@ -1,18 +1,16 @@
 package com.example.gear_kotlin
 
-import android.os.SystemClock
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.core.UserModel
-import com.example.local.dao.UserDaoIn
+import com.example.local.dao.UserDao
 import com.example.model.User
 
 class ThirdFragmentViewModel : ViewModel() {
     // TODO: Implement the ViewModel
     var users = MutableLiveData<List<User>>()
     var user = MutableLiveData<User>()
-    lateinit var daoIn: UserDaoIn
+    lateinit var daoIn: UserDao
     init {
         user.value = User(1, "william")
     }
