@@ -12,12 +12,10 @@ import javax.inject.Singleton
 
 @Component(
     modules = [AndroidSupportInjectionModule::class,
-        ViewModelFactoryModule::class,
-        ViewModelModule::class,
+        AppModule::class,
         ActivitiesBuilder::class
     ]
-//            ActivityProvider::class,
-//    ViewModelModule::class,
+
 )
 @Singleton
 interface AppComponent : AndroidInjector<DaggerApplication> {

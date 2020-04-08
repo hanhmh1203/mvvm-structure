@@ -23,4 +23,8 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ThirdFragmentViewModel::class)
     abstract fun thirdFragmentViewModel(model: ThirdFragmentViewModel): ViewModel
+
+
+    @Binds
+    abstract fun bindViewModelFactory(factory: DaggerViewModelFactory): ViewModelProvider.Factory
 }

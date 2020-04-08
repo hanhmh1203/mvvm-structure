@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -24,16 +25,19 @@ import javax.inject.Inject
 class ThirdFragment : BaseFragment() {
     lateinit var appDb: AppDatabase
     lateinit var userDao: UserDao
+    @Inject
     lateinit var repository: UserRepository
-//    private val viewmodelfactory: Viewmodelf
-    private lateinit var viewModel: ThirdFragmentViewModel
+
+
     private lateinit var binding: FragmentThirdBinding // generate by layout name
 
     /*
    * Step 1: Here, we need to inject the ViewModelFactory.
    * */
     @Inject
-    internal lateinit var viewModelFactory: ViewModelProvider.Factory
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+    private lateinit var viewModel: ThirdFragmentViewModel
+
     @Inject lateinit var service: TestService
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,25 +54,25 @@ class ThirdFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        appDb = AppDatabase.buildDatabase(requireContext().applicationContext)
-        userDao = appDb.userDao()
-        repository = UserRepository(userDao)
+//        appDb = AppDatabase.buildDatabase(requireContext().applicationContext)
+//        userDao = appDb.userDao()
+//        repository = UserRepository(userDao)
 
-        viewModel = ViewModelProvider(this).get(ThirdFragmentViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(ThirdFragmentViewModel::class.java)
         binding.viewModel = viewModel
         viewModel.user.observe(viewLifecycleOwner, Observer {
             Log.i("ThirdFragment", "user value ${viewModel.user.value!!.name}")
             binding.viewModel = viewModel
         })
 
-        viewModel.viewModelScope.launch(Dispatchers.Main) {
-            log("insert database")
-            withContext(Dispatchers.IO){
-                repository.deleteAll()
-                insert()
-                viewModel.users.postValue(repository.getAllUserList())
-            }
-        }
+//        viewModel.viewModelScope.launch(Dispatchers.Main) {
+//            log("insert database")
+//            withContext(Dispatchers.IO){
+//                repository.deleteAll()
+//                insert()
+//                viewModel.users.postValue(repository.getAllUserList())
+//            }
+//        }
         viewModel.users.observe(viewLifecycleOwner, Observer { list ->
             log("viewModel.users.observe: ${list.toString()}")
             viewModel.user.value = list[0]
@@ -77,11 +81,7 @@ class ThirdFragment : BaseFragment() {
         // TODO: Use the ViewModel
     }
 
-    private suspend fun insert() {
-        repository.getUserDummy().forEach {
-            userDao.insert(it)
-        }
-    }
+
 
     override fun onStop() {
         super.onStop()

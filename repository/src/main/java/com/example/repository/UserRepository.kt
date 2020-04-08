@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.local.dao.UserDao
 import com.example.model.User
 
+
 class UserRepository(private val dao: UserDao) {
     suspend fun getAllUser(): MutableLiveData<List<User>> {
         val data = MutableLiveData<List<User>>()
