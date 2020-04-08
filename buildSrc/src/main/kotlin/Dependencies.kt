@@ -52,6 +52,7 @@ object Versions {
     const val fragmentTest = "1.1.0-alpha06"
     const val databinding = "3.3.2"
     const val googleServicesVersion = "4.3.3"
+    const val daggerVersion = "2.27"
 }
 
 object Libraries {
@@ -70,6 +71,14 @@ object Libraries {
     val httpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
     // GLIDE
     val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+
+    // Dagger
+
+    val dagger = "com.google.dagger:dagger:${Versions.daggerVersion}"
+    val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.daggerVersion}"
+    val daggerAndroid ="com.google.dagger:dagger-android:${Versions.daggerVersion}"
+    val daggerProcessor = "com.google.dagger:dagger-android-processor:${Versions.daggerVersion}"
+    var daggerAndroidSupport = "com.google.dagger:dagger-android-support:${Versions.daggerVersion}"
 }
 
 object KotlinLibraries {

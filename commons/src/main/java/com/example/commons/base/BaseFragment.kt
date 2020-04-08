@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import dagger.android.support.DaggerFragment
 
-open class BaseFragment:Fragment() {
+
+open class BaseFragment: DaggerFragment() {
     fun log(str: String){
         Log.i(this::class.java.name, str);
     }

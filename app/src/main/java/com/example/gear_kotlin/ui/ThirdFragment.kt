@@ -5,17 +5,20 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.*
-
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.example.commons.base.BaseFragment
-import com.example.gear_kotlin.viewmodel.ThirdFragmentViewModel
 import com.example.gear_kotlin.databinding.FragmentThirdBinding
+import com.example.gear_kotlin.di.TestService
+import com.example.gear_kotlin.viewmodel.ThirdFragmentViewModel
 import com.example.local.AppDatabase
 import com.example.local.dao.UserDao
 import com.example.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
 
 class ThirdFragment : BaseFragment() {
@@ -25,10 +28,15 @@ class ThirdFragment : BaseFragment() {
 //    private val viewmodelfactory: Viewmodelf
     private lateinit var viewModel: ThirdFragmentViewModel
     private lateinit var binding: FragmentThirdBinding // generate by layout name
+
+    /*
+   * Step 1: Here, we need to inject the ViewModelFactory.
+   * */
+    @Inject
+    internal lateinit var viewModelFactory: ViewModelProvider.Factory
+    @Inject lateinit var service: TestService
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
     }
 
     override fun onCreateView(

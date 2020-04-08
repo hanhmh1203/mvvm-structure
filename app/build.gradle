@@ -58,4 +58,11 @@ dependencies {
     implementation Libraries.roomRunTime
     implementation Libraries.roomKtx
 
+    // Dagger
+    kapt Libraries.daggerCompiler
+    kapt Libraries.daggerProcessor
+    implementation Libraries.dagger
+    implementation Libraries.daggerAndroid
+    implementation Libraries.daggerAndroidSupport
+
 }

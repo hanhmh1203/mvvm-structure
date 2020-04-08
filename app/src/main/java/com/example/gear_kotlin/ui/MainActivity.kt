@@ -1,22 +1,32 @@
 package com.example.gear_kotlin.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.gear_kotlin.R
+import com.example.gear_kotlin.di.TestService
 
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
+class MainActivity : DaggerAppCompatActivity() {
 
-class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+        Log.i("hanhmh1203","value i ${service.i}")
     }
-
+//    @Inject
+//    internal lateinit var viewModelFactory: ViewModelProvider.Factory
+    @Inject
+    lateinit var service: TestService
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
@@ -32,4 +42,5 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
 }
