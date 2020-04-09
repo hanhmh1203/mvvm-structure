@@ -16,7 +16,7 @@ class ThirdFragmentViewModel @Inject constructor(var repository: UserRepository,
     // TODO: Implement the ViewModel
     var users = MutableLiveData<List<User>>()
     var user = MutableLiveData<User>()
-    lateinit var daoIn: UserDao
+    var i = 0
     init {
         user.value = User(1, "william")
         viewModelScope.launch(Dispatchers.Main) {
@@ -26,6 +26,10 @@ class ThirdFragmentViewModel @Inject constructor(var repository: UserRepository,
                 users.postValue(repository.getAllUserList())
             }
         }
+    }
+    fun increaseI(){
+        Log.i("increaseI","value $i")
+        i++
     }
     private suspend fun insert() {
         repository.getUserDummy().forEach {

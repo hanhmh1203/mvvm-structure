@@ -10,8 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.commons.base.BaseFragment
+import com.example.commons.extension.shortToast
 import com.example.gear_kotlin.databinding.FragmentThirdBinding
-import com.example.gear_kotlin.di.TestService
 import com.example.gear_kotlin.viewmodel.ThirdFragmentViewModel
 import com.example.local.AppDatabase
 import com.example.local.dao.UserDao
@@ -23,8 +23,6 @@ import javax.inject.Inject
 
 
 class ThirdFragment : BaseFragment() {
-    lateinit var appDb: AppDatabase
-    lateinit var userDao: UserDao
     @Inject
     lateinit var repository: UserRepository
 
@@ -36,12 +34,10 @@ class ThirdFragment : BaseFragment() {
    * */
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    private lateinit var viewModel: ThirdFragmentViewModel
+    @Inject
+    lateinit var viewModel: ThirdFragmentViewModel
 
-    @Inject lateinit var service: TestService
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,10 +50,6 @@ class ThirdFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//        appDb = AppDatabase.buildDatabase(requireContext().applicationContext)
-//        userDao = appDb.userDao()
-//        repository = UserRepository(userDao)
-
         viewModel = ViewModelProvider(this, viewModelFactory).get(ThirdFragmentViewModel::class.java)
         binding.viewModel = viewModel
         viewModel.user.observe(viewLifecycleOwner, Observer {
@@ -65,14 +57,6 @@ class ThirdFragment : BaseFragment() {
             binding.viewModel = viewModel
         })
 
-//        viewModel.viewModelScope.launch(Dispatchers.Main) {
-//            log("insert database")
-//            withContext(Dispatchers.IO){
-//                repository.deleteAll()
-//                insert()
-//                viewModel.users.postValue(repository.getAllUserList())
-//            }
-//        }
         viewModel.users.observe(viewLifecycleOwner, Observer { list ->
             log("viewModel.users.observe: ${list.toString()}")
             viewModel.user.value = list[0]

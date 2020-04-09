@@ -11,6 +11,7 @@ import dagger.android.support.DaggerFragment
 
 
 open class BaseFragment: DaggerFragment() {
+
     fun log(str: String){
         Log.i(this::class.java.name, str);
     }

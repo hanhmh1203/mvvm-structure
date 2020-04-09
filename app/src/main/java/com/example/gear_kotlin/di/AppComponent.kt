@@ -1,6 +1,8 @@
 package com.example.gear_kotlin.di
 
 import com.example.gear_kotlin.GearApplication
+import com.example.gear_kotlin.di.module.ActivityProvider
+import com.example.gear_kotlin.di.module.AppModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -13,7 +15,7 @@ import javax.inject.Singleton
 @Component(
     modules = [AndroidSupportInjectionModule::class,
         AppModule::class,
-        ActivitiesBuilder::class
+        ActivityProvider::class
     ]
 
 )
