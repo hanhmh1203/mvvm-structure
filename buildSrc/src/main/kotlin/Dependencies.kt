@@ -8,6 +8,8 @@ object Modules {
     const val core = ":core"
     const val libraries = ":libraries"
     const val model = ":model"
+    const val localDatabase = ":local"
+    const val repository = ":repository"
 }
 
 object Releases {
@@ -25,6 +27,7 @@ object Versions {
     const val coreKtx = "1.1.0"
     const val activityKtx = "1.1.0"
     const val fragmentKtx = "1.2.4"
+    const val liveDataKtx = "2.2.0"
     const val constraintLayout = "1.1.3"
 
     const val androidTestRunner = "1.1.2-alpha02"
@@ -39,7 +42,7 @@ object Versions {
     const val timber = "4.7.1"
     const val lifecycle = "2.2.0"
     const val navigation = "2.2.1"
-    const val room = "2.1.0-alpha06"
+    const val room = "2.2.5"
     const val recyclerview = "1.1.0"
     const val glide = "4.9.0"
     const val mockwebserver = "2.7.5"
@@ -49,6 +52,7 @@ object Versions {
     const val fragmentTest = "1.1.0-alpha06"
     const val databinding = "3.3.2"
     const val googleServicesVersion = "4.3.3"
+    const val daggerVersion = "2.27"
 }
 
 object Libraries {
@@ -67,6 +71,14 @@ object Libraries {
     val httpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
     // GLIDE
     val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+
+    // Dagger
+
+    val dagger = "com.google.dagger:dagger:${Versions.daggerVersion}"
+    val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.daggerVersion}"
+    val daggerAndroid ="com.google.dagger:dagger-android:${Versions.daggerVersion}"
+    val daggerProcessor = "com.google.dagger:dagger-android-processor:${Versions.daggerVersion}"
+    var daggerAndroidSupport = "com.google.dagger:dagger-android-support:${Versions.daggerVersion}"
 }
 
 object KotlinLibraries {
@@ -88,6 +100,8 @@ object AndroidLibraries {
     const val navigationFrag = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
+    const val liveDataKtx ="androidx.lifecycle:lifecycle-livedata-ktx:${Versions.liveDataKtx}"
+
 }
 
 object TestLibraries {

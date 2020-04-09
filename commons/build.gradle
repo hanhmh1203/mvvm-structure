@@ -1,9 +1,17 @@
 apply plugin: 'com.android.library'
 apply from: '../android_commons.gradle'
+apply plugin: "kotlin-kapt"
 
 dependencies {
     implementation AndroidLibraries.appCompat
     implementation AndroidLibraries.navigationFrag
+
+    // Dagger
+    kapt Libraries.daggerCompiler
+    kapt Libraries.daggerProcessor
+    implementation Libraries.dagger
+//    implementation Libraries.daggerAndroid
+    implementation Libraries.daggerAndroidSupport
 }
 
 

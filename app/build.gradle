@@ -28,10 +28,13 @@ android {
 }
 
 dependencies {
-    implementation project(Modules.libraries)
+//    implementation project(Modules.libraries)
     implementation project(Modules.common)
-    implementation project(Modules.core)
+//    implementation project(Modules.core)
     implementation project(Modules.model)
+    implementation project(Modules.localDatabase)
+    implementation project(Modules.repository)
+
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     // ANDROID
@@ -48,5 +51,18 @@ dependencies {
     implementation AndroidLibraries.lifecycleViewModel
     implementation AndroidLibraries.lifecycleExtensions
     implementation AndroidLibraries.recyclerView
+
+
+    // ROOM
+    kapt Libraries.roomCompiler
+    implementation Libraries.roomRunTime
+    implementation Libraries.roomKtx
+
+    // Dagger
+    kapt Libraries.daggerCompiler
+    kapt Libraries.daggerProcessor
+    implementation Libraries.dagger
+    implementation Libraries.daggerAndroid
+    implementation Libraries.daggerAndroidSupport
 
 }
