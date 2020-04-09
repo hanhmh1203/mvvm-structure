@@ -10,6 +10,7 @@ object Modules {
     const val model = ":model"
     const val localDatabase = ":local"
     const val repository = ":repository"
+    const val remote = ":remote"
 }
 
 object Releases {
@@ -32,7 +33,7 @@ object Versions {
 
     const val androidTestRunner = "1.1.2-alpha02"
     const val espressoCore = "3.2.0-alpha02"
-    const val retrofit = "2.5.0"
+    const val retrofit = "2.8.1"
     const val retrofitCoroutines = "0.9.2"
     const val retrofitGson = "2.4.0"
     const val gson = "2.8.5"
