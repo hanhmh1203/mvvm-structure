@@ -1,9 +1,21 @@
 apply plugin: 'com.android.library'
 apply from: '../android_commons.gradle'
+//apply plugin: "kotlin-kapt"
 
 dependencies {
     // DATA MODULE
     implementation project(Modules.model)
     implementation Libraries.retrofit
     implementation Libraries.retrofitGsonConverter
+    implementation AndroidLibraries.coreKtx
+
+    implementation KotlinLibraries.kotlinCoroutineCore
+
+
+    // Dagger
+//    kapt Libraries.daggerCompiler
+//    kapt Libraries.daggerProcessor
+    implementation Libraries.dagger
+//    implementation Libraries.daggerAndroid
+//    implementation Libraries.daggerAndroidSupport
 }

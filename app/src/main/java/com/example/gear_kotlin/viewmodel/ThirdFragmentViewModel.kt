@@ -5,14 +5,22 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.local.dao.UserDao
+import com.example.model.RadditNews
+import com.example.model.RedditNewsItem
+import com.example.model.RedditNewsResponse
 import com.example.model.User
+import com.example.remote.NewsApi
+import com.example.repository.NewsRepository
 import com.example.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+import kotlin.coroutines.coroutineContext
 
-class ThirdFragmentViewModel @Inject constructor(var repository: UserRepository, var userDao: UserDao): ViewModel() {
+class ThirdFragmentViewModel @Inject constructor(var repository: UserRepository,
+                                                 var newsRepository: NewsRepository,
+                                                 var userDao: UserDao): ViewModel() {
     // TODO: Implement the ViewModel
     var users = MutableLiveData<List<User>>()
     var user = MutableLiveData<User>()
@@ -26,6 +34,31 @@ class ThirdFragmentViewModel @Inject constructor(var repository: UserRepository,
                 users.postValue(repository.getAllUserList())
             }
         }
+    }
+
+
+    fun fetchNews( after: String, limit: String = "10") = viewModelScope.launch (Dispatchers.IO) {
+        try {
+            val result = newsRepository.getNewsOldApi(after, limit)
+            Log.i("hanhmh1203","result $result")
+            val news = process(result)
+//            newsState.postValue(NewsState.Success(news))
+        } catch (e: Throwable) {
+            Log.i("hanhmh1203","result $e")
+//            newsState.postValue(NewsState.Error(e.message))
+        }
+    }
+    private fun process(response: RedditNewsResponse): RadditNews {
+        val dataResponse = response.data
+        val news = dataResponse.children.map {
+            val item = it.data
+            RedditNewsItem(item.author, item.title, item.num_comments,
+                item.created, item.thumbnail, item.url)
+        }
+        return RadditNews(
+            dataResponse.after.orEmpty(),
+            dataResponse.before.orEmpty(),
+            news)
     }
     fun increaseI(){
         Log.i("increaseI","value $i")

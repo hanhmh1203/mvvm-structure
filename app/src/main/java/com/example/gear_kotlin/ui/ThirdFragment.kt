@@ -15,6 +15,7 @@ import com.example.gear_kotlin.databinding.FragmentThirdBinding
 import com.example.gear_kotlin.viewmodel.ThirdFragmentViewModel
 import com.example.local.AppDatabase
 import com.example.local.dao.UserDao
+import com.example.remote.NewsApi
 import com.example.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -63,9 +64,14 @@ class ThirdFragment : BaseFragment() {
         })
 
         // TODO: Use the ViewModel
+        testApi()
     }
 
-
+    @Inject
+    lateinit var newsApi: NewsApi
+    fun testApi(){
+        viewModel.fetchNews("", limit = "10")
+    }
 
     override fun onStop() {
         super.onStop()

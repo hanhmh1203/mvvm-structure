@@ -30,7 +30,7 @@ android {
 dependencies {
 //    implementation project(Modules.libraries)
     implementation project(Modules.common)
-//    implementation project(Modules.core)
+    implementation project(Modules.remote)
     implementation project(Modules.model)
     implementation project(Modules.localDatabase)
     implementation project(Modules.repository)
@@ -64,5 +64,12 @@ dependencies {
     implementation Libraries.dagger
     implementation Libraries.daggerAndroid
     implementation Libraries.daggerAndroidSupport
+
+    // retrofit
+    // DATA MODULE
+    implementation Libraries.retrofit
+    implementation Libraries.retrofitGsonConverter
+    implementation AndroidLibraries.coreKtx
+    implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0")
 
 }
