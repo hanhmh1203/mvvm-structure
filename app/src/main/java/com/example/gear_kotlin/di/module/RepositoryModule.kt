@@ -4,9 +4,7 @@ import com.example.gear_kotlin.GearApplication
 import com.example.local.AppDatabase
 import com.example.local.dao.UserDao
 import com.example.local.dao.UserGitDao
-import com.example.remote.NewsApi
 import com.example.remote.UserDataSource
-import com.example.repository.NewsRepository
 import com.example.repository.UserGitRepository
 import com.example.repository.UserGitRepositoryImpl
 import com.example.repository.UserRepository
@@ -23,11 +21,6 @@ class RepositoryModule {
         return UserRepository(userDao)
     }
 
-    @Singleton
-    @Provides
-    fun provideNewsRepository(api: NewsApi): NewsRepository {
-        return NewsRepository(api)
-    }
     @Singleton
     @Provides
     fun provideGetTopUserCase(userGitRepository: UserGitRepository): GetTopUsersUseCase {

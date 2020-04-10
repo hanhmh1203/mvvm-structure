@@ -41,7 +41,7 @@ class HomeViewModel @Inject constructor(
     private fun getUsers(forceRefresh: Boolean) = viewModelScope.launch(dispatchers.main) {
         _users.removeSource(usersSource) // We make sure there is only one source of livedata (allowing us properly refresh)
         withContext(dispatchers.io) {
-            usersSource = getTopUsersUseCase(forceRefresh = forceRefresh)
+            usersSource = getTopUsersUseCase()
         }
         _users.addSource(usersSource) {
             _users.value = it

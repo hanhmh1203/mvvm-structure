@@ -1,8 +1,5 @@
 package com.example.gear_kotlin.di.module
 
-import com.example.remote.NewsApi
-import com.example.remote.NewsApiImpl
-import com.example.remote.RedditApi
 import com.example.remote.UserApi
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
@@ -23,15 +20,7 @@ class NetworkModule{
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
     }
-    @Provides
-    @Singleton
-    fun provideNewsAPI(redditApi: RedditApi): NewsApi =
-        NewsApiImpl(redditApi)
 
-    @Provides
-    @Singleton
-    fun provideRedditApi(retrofit: Retrofit): RedditApi = retrofit.create(
-        RedditApi::class.java)
     @Provides
     @Singleton
     fun provideUserApi(retrofit: Retrofit): UserApi = retrofit.create(

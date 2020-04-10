@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply from: '../android_commons.gradle'
-//apply plugin: "kotlin-kapt"
 
 dependencies {
     // DATA MODULE
@@ -14,6 +13,6 @@ dependencies {
 
     // Dagger Inject
 
-    implementation Libraries.dagger
+    implementation Libraries.daggerAndroidSupport
 
 }

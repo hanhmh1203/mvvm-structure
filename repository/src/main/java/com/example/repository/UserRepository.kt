@@ -3,9 +3,6 @@ package com.example.repository
 import androidx.lifecycle.MutableLiveData
 import com.example.local.dao.UserDao
 import com.example.model.User
-import com.example.remote.RedditApi
-
-
 
 class UserRepository(private val dao: UserDao) {
     suspend fun getAllUser(): MutableLiveData<List<User>> {

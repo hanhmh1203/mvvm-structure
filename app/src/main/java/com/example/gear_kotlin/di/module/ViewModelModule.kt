@@ -16,7 +16,7 @@ abstract class ViewModelModule {
 
     @Binds
     abstract fun bindViewModelFactory(factory: DaggerViewModelFactory): ViewModelProvider.Factory
-//
+
     @Singleton
     @Binds
     @IntoMap
@@ -28,7 +28,6 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(HomeViewModel::class)
     abstract fun homeViewModel(model: HomeViewModel): ViewModel
-
 
 
 }

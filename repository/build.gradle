@@ -9,11 +9,10 @@ dependencies {
     implementation project(Modules.remote)
     // ANDROID
     implementation KotlinLibraries.kotlinCoroutineCore
-//    implementation Libraries.retrofitCoroutineAdapter
     implementation AndroidLibraries.lifecycleExtensions
     implementation AndroidLibraries.liveDataKtx
 
-    implementation Libraries.dagger
+    implementation Libraries.daggerAndroidSupport
     implementation AndroidLibraries.kotlinCoroutineAndroid
     // TESTS
 //    testImplementation TestLibraries.junit
