@@ -15,7 +15,10 @@ import com.example.repository.utils.Resource
 class GetTopUsersUseCase(private val repository: UserGitRepository) {
 
     suspend operator fun invoke(forceRefresh: Boolean = true): LiveData<Resource<List<UserGit>>> {
-        return Transformations.map(repository.getTopUsersWithCache(forceRefresh)) {
+//        return Transformations.map(repository.getTopUsersWithCache(forceRefresh)) {
+//            it // Place here your specific logic actions
+//        }
+        return Transformations.map(repository.getTopUsersWithCacheNoDB()) {
             it // Place here your specific logic actions
         }
     }

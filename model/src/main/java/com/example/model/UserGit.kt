@@ -28,7 +28,7 @@ data class UserGit (
     val blog: String?,
 
     var lastRefreshed: Date
-) {
+): BaseEntity() {
     /**
      * We consider that an [UserGit] is outdated when the last time
      * we fetched it was more than 10 minutes

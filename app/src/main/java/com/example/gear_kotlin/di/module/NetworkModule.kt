@@ -25,13 +25,16 @@ class NetworkModule{
     }
     @Provides
     @Singleton
-    fun provideNewsAPI(redditApi: RedditApi): NewsApi = NewsApiImpl(redditApi)
+    fun provideNewsAPI(redditApi: RedditApi): NewsApi =
+        NewsApiImpl(redditApi)
 
     @Provides
     @Singleton
-    fun provideRedditApi(retrofit: Retrofit): RedditApi = retrofit.create(RedditApi::class.java)
+    fun provideRedditApi(retrofit: Retrofit): RedditApi = retrofit.create(
+        RedditApi::class.java)
     @Provides
     @Singleton
-    fun provideUserApi(retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
+    fun provideUserApi(retrofit: Retrofit): UserApi = retrofit.create(
+        UserApi::class.java)
 
 }
