@@ -5,12 +5,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.fragment.findNavController
 import com.example.commons.base.BaseFragment
+import com.example.commons.extension.getViewModel
 import com.example.commons.extension.shortToast
+import com.example.gear_kotlin.R
 import com.example.gear_kotlin.databinding.FragmentThirdBinding
 import com.example.gear_kotlin.viewmodel.ThirdFragmentViewModel
 import com.example.local.AppDatabase
@@ -35,9 +39,13 @@ class ThirdFragment : BaseFragment() {
    * */
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    @Inject
+
+    //    @Inject
     lateinit var viewModel: ThirdFragmentViewModel
 
+    lateinit var viewModel1: ThirdFragmentViewModel
+
+    lateinit var viewModel2: ThirdFragmentViewModel
 
 
     override fun onCreateView(
@@ -49,9 +57,21 @@ class ThirdFragment : BaseFragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.increaseI()
+        viewModel.increaseI()
+        viewModel1.increaseI()
+        viewModel1.increaseI()
+        viewModel2.increaseI()
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ThirdFragmentViewModel::class.java)
+        viewModel = getViewModel(viewModelFactory)
+        viewModel1 = getViewModel(viewModelFactory)
+        viewModel2 = getViewModel(viewModelFactory)
+
         binding.viewModel = viewModel
         viewModel.user.observe(viewLifecycleOwner, Observer {
             Log.i("ThirdFragment", "user value ${viewModel.user.value!!.name}")
@@ -64,12 +84,21 @@ class ThirdFragment : BaseFragment() {
         })
 
         // TODO: Use the ViewModel
-        testApi()
+//        testApi()
+        viewModel.toHome.observe(viewLifecycleOwner, Observer {
+            if(it){
+                val  action = ThirdFragmentDirections.navToHome()
+                findNavController().navigate(action)
+                viewModel.toHome.value = false
+            }
+
+
+        })
     }
 
     @Inject
     lateinit var newsApi: NewsApi
-    fun testApi(){
+    fun testApi() {
         viewModel.fetchNews("", limit = "10")
     }
 

@@ -64,12 +64,13 @@ dependencies {
     implementation Libraries.dagger
     implementation Libraries.daggerAndroid
     implementation Libraries.daggerAndroidSupport
+    implementation Libraries.retrofitCoroutineAdapter
 
     // retrofit
     // DATA MODULE
     implementation Libraries.retrofit
     implementation Libraries.retrofitGsonConverter
     implementation AndroidLibraries.coreKtx
-    implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:1.0.0")
+
 
 }

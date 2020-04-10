@@ -8,7 +8,7 @@ dependencies {
     implementation Libraries.retrofit
     implementation Libraries.retrofitGsonConverter
     implementation AndroidLibraries.coreKtx
-
+//    implementation Libraries.retrofitCoroutineAdapter
     implementation KotlinLibraries.kotlinCoroutineCore
 
 
@@ -16,6 +16,8 @@ dependencies {
 //    kapt Libraries.daggerCompiler
 //    kapt Libraries.daggerProcessor
     implementation Libraries.dagger
+    implementation AndroidLibraries.kotlinCoroutineAndroid
+//    implementation Libraries.retrofitCoroutineAdapter
 //    implementation Libraries.daggerAndroid
 //    implementation Libraries.daggerAndroidSupport
 }

@@ -38,7 +38,7 @@ object Versions {
     const val retrofitGson = "2.8.1"
     const val gson = "2.8.5"
     const val okHttp = "4.5.0"
-    const val coroutines = "1.1.1"
+    const val coroutines = "1.3.0"
     const val koin = "1.0.2"
     const val timber = "4.7.1"
     const val lifecycle = "2.2.0"

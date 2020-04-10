@@ -50,5 +50,14 @@
 
             android:id="@+id/action_ThirdFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
+        <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/ThirdFragment"
+            android:id="@+id/navToHome"
+            app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.gear_kotlin.network.HomeFragment"
+        android:label="HomeFragment" />
 </navigation>
