@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'
+apply from: '../android_commons.gradle'
+
+dependencies {
+    // DATA MODULE
+    implementation project(Modules.model)
+    implementation Libraries.retrofit
+    implementation Libraries.retrofitGsonConverter
+    implementation AndroidLibraries.coreKtx
+    implementation Libraries.retrofitCoroutineAdapter
+    implementation KotlinLibraries.kotlinCoroutineCore
+
+
+    // Dagger Inject
+
+    implementation Libraries.daggerAndroidSupport
+
+}

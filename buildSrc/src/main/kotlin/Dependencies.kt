@@ -10,6 +10,7 @@ object Modules {
     const val model = ":model"
     const val localDatabase = ":local"
     const val repository = ":repository"
+    const val remote = ":remote"
 }
 
 object Releases {
@@ -32,12 +33,12 @@ object Versions {
 
     const val androidTestRunner = "1.1.2-alpha02"
     const val espressoCore = "3.2.0-alpha02"
-    const val retrofit = "2.5.0"
+    const val retrofit = "2.8.1"
     const val retrofitCoroutines = "0.9.2"
-    const val retrofitGson = "2.4.0"
+    const val retrofitGson = "2.8.1"
     const val gson = "2.8.5"
-    const val okHttp = "3.12.1"
-    const val coroutines = "1.1.1"
+    const val okHttp = "4.5.0"
+    const val coroutines = "1.3.0"
     const val koin = "1.0.2"
     const val timber = "4.7.1"
     const val lifecycle = "2.2.0"
@@ -68,6 +69,8 @@ object Libraries {
     val gson = "com.google.code.gson:gson:${Versions.gson}"
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     val retrofitGsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofitGson}"
+
+    val retrofitOkHTTP ="com.squareup.okhttp3:okhttp:${Versions.okHttp}"
     val httpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
     // GLIDE
     val glide = "com.github.bumptech.glide:glide:${Versions.glide}"

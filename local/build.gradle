@@ -17,11 +17,5 @@ dependencies {
     implementation Libraries.roomRunTime
     implementation Libraries.roomKtx
     implementation AndroidLibraries.lifecycleExtensions
-    // TEST MODULE
-//    androidTestImplementation project(Modules.commonTest)
 
-
-    // TEST
-//    androidTestImplementation TestLibraries.androidTestRunner
-//    androidTestImplementation TestLibraries.junit
 }

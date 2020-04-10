@@ -1,6 +1,7 @@
 package com.example.gear_kotlin.viewmodel
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,13 +12,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+import kotlin.coroutines.coroutineContext
 
-class ThirdFragmentViewModel @Inject constructor(var repository: UserRepository, var userDao: UserDao): ViewModel() {
+class ThirdFragmentViewModel @Inject constructor(var repository: UserRepository,
+                                                 var userDao: UserDao): ViewModel() {
     // TODO: Implement the ViewModel
     var users = MutableLiveData<List<User>>()
     var user = MutableLiveData<User>()
+    var toHome = MutableLiveData<Boolean>()
     var i = 0
     init {
+        toHome.value = false
         user.value = User(1, "william")
         viewModelScope.launch(Dispatchers.Main) {
             withContext(Dispatchers.IO){
@@ -26,8 +31,10 @@ class ThirdFragmentViewModel @Inject constructor(var repository: UserRepository,
                 users.postValue(repository.getAllUserList())
             }
         }
+
     }
-    fun increaseI(){
+
+      fun increaseI(){
         Log.i("increaseI","value $i")
         i++
     }
@@ -55,6 +62,10 @@ class ThirdFragmentViewModel @Inject constructor(var repository: UserRepository,
     fun click(){
         increase++
         setUserNameWithOut("hanhmh1203 $increase")
+    }
+
+    fun toHome(){
+        toHome.value = true
     }
 
     override fun onCleared() {

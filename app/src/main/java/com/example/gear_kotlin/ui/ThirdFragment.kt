@@ -5,27 +5,21 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.navigation.fragment.findNavController
+import com.example.commons.Constant
 import com.example.commons.base.BaseFragment
-import com.example.commons.extension.shortToast
+import com.example.commons.extension.getViewModel
 import com.example.gear_kotlin.databinding.FragmentThirdBinding
 import com.example.gear_kotlin.viewmodel.ThirdFragmentViewModel
-import com.example.local.AppDatabase
-import com.example.local.dao.UserDao
 import com.example.repository.UserRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 
 class ThirdFragment : BaseFragment() {
     @Inject
     lateinit var repository: UserRepository
-
 
     private lateinit var binding: FragmentThirdBinding // generate by layout name
 
@@ -34,10 +28,8 @@ class ThirdFragment : BaseFragment() {
    * */
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-    @Inject
+
     lateinit var viewModel: ThirdFragmentViewModel
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,12 +37,14 @@ class ThirdFragment : BaseFragment() {
     ): View? {
         binding = FragmentThirdBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
+
         return binding.root
     }
 
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ThirdFragmentViewModel::class.java)
+        viewModel = getViewModel(viewModelFactory)
         binding.viewModel = viewModel
         viewModel.user.observe(viewLifecycleOwner, Observer {
             Log.i("ThirdFragment", "user value ${viewModel.user.value!!.name}")
@@ -63,9 +57,14 @@ class ThirdFragment : BaseFragment() {
         })
 
         // TODO: Use the ViewModel
+        viewModel.toHome.observe(viewLifecycleOwner, Observer {
+            if(it){
+                val  action = ThirdFragmentDirections.navToHome()
+                findNavController().navigate(action)
+                viewModel.toHome.value = false
+            }
+        })
     }
-
-
 
     override fun onStop() {
         super.onStop()

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.gear_kotlin.di.DaggerViewModelFactory
 import com.example.gear_kotlin.di.ViewModelKey
+import com.example.gear_kotlin.network.HomeViewModel
 import com.example.gear_kotlin.viewmodel.ThirdFragmentViewModel
 import dagger.Binds
 import dagger.Module
@@ -21,6 +22,12 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ThirdFragmentViewModel::class)
     abstract fun thirdFragmentViewModel(model: ThirdFragmentViewModel): ViewModel
+
+    @Singleton
+    @Binds
+    @IntoMap
+    @ViewModelKey(HomeViewModel::class)
+    abstract fun homeViewModel(model: HomeViewModel): ViewModel
 
 
 }
