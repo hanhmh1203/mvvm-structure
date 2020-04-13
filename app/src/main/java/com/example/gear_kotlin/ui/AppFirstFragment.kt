@@ -30,7 +30,11 @@ class AppFirstFragment : BaseFragment() {
         val param1 = 101
         val param2 = this::class.java.name
         val user= User(name = "hanhmh1203")
-        val  action = AppFirstFragmentDirections.actionFirstFragmentToSecondFragment(user).setParamInt(param1).setParamStr(param2)
+        val  action =
+            AppFirstFragmentDirections
+            .actionFirstFragmentToSecondFragment(user)
+            .setParamInt(param1)
+            .setParamStr(param2)
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
             findNavController().navigate(action)
         }

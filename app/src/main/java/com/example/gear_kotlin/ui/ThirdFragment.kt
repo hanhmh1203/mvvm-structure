@@ -51,10 +51,10 @@ class ThirdFragment : BaseFragment() {
 
     }
     private fun observe(){
-        viewModel.user.observe(viewLifecycleOwner, Observer {
-            Log.i("ThirdFragment", "user value ${viewModel.user.value!!.name}")
-            binding.viewModel = viewModel
-        })
+//        viewModel.user.observe(viewLifecycleOwner, Observer {
+//            Log.i("ThirdFragment", "user value ${viewModel.user.value!!.name}")
+//            binding.viewModel = viewModel
+//        })
 
         viewModel.users.observe(viewLifecycleOwner, Observer { list ->
             log("viewModel.users.observe: ${list.toString()}")
