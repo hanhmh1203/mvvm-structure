@@ -150,6 +150,8 @@ LiveData is an observable data holder class. LiveData is lifecycle-aware,
 meaning it respects the lifecycle of other app components, such as activities, fragments, or services. 
 This awareness ensures LiveData only updates app component observers that are in an active lifecycle state
 ```
+
+##### to understanding livedata: [link](https://blog.mindorks.com/understanding-livedata-in-android)
 ```
 We have two ways to for set value for LiveData
 1. livedata.value = xxx -> only set on mainthread.
