@@ -1,6 +1,7 @@
 package com.example.repository
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.local.dao.UserGitDao
 import com.example.model.ApiResult
 import com.example.model.UserGit
@@ -55,6 +56,10 @@ class UserGitRepositoryImpl @Inject constructor(
                 dataSource.fetchTopUsersAsync()
 
         }.build().asLiveData()
+
+//        var result = MutableLiveData<Resource<List<UserGit>>>()
+//        result.postValue( Resource.success(dataSource.fetchTopUsersAsync().items))
+//        return result
 
     }
 
