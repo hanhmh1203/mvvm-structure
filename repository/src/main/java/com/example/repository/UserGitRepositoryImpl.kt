@@ -57,11 +57,14 @@ class UserGitRepositoryImpl @Inject constructor(
 
         }.build().asLiveData()
 
-//        var result = MutableLiveData<Resource<List<UserGit>>>()
-//        result.postValue( Resource.success(dataSource.fetchTopUsersAsync().items))
-//        return result
+    }
+    override suspend fun getTopUsersWithCacheNoDBNoObject(): LiveData<Resource<List<UserGit>>> {
+        var result = MutableLiveData<Resource<List<UserGit>>>()
+        result.postValue( Resource.success(dataSource.fetchTopUsersAsync().items))
+        return result
 
     }
+
 
 
     /**

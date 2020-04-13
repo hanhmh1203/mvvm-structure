@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -46,6 +47,10 @@ class ThirdFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = getViewModel(viewModelFactory)
         binding.viewModel = viewModel
+        observe()
+
+    }
+    private fun observe(){
         viewModel.user.observe(viewLifecycleOwner, Observer {
             Log.i("ThirdFragment", "user value ${viewModel.user.value!!.name}")
             binding.viewModel = viewModel
