@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.example.model.UserGit
 import com.example.commons.AppDispatchers
+import com.example.repository.UserGitRepository
 import com.example.repository.utils.Resource
 import io.philippeboisney.home.domain.GetTopUsersUseCase
 import kotlinx.coroutines.launch
@@ -37,6 +38,7 @@ class HomeViewModel @Inject constructor(
     fun userRefreshesItems() = getUsers(true)
 
     // ---
+
 
     private fun getUsers(forceRefresh: Boolean) = viewModelScope.launch(dispatchers.main) {
         _users.removeSource(usersSource) // We make sure there is only one source of livedata (allowing us properly refresh)

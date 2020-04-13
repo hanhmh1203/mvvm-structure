@@ -7,11 +7,15 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.commons.extension.williamLog
 import com.example.gear_kotlin.R
 import com.example.gear_kotlin.viewmodel.ThirdFragmentViewModel
 
 import dagger.android.support.DaggerAppCompatActivity
+import io.philippeboisney.home.domain.CoroutinesUseCase
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 class MainActivity : DaggerAppCompatActivity() {
@@ -25,7 +29,11 @@ class MainActivity : DaggerAppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        CoroutinesUseCase().invoke()
+
     }
+
 
     override fun onResume() {
         super.onResume()
