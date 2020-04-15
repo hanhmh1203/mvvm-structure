@@ -12,6 +12,7 @@ import com.example.repository.UserGitRepository
 import com.example.repository.utils.Resource
 import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.produce
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import kotlin.coroutines.coroutineContext
 import kotlin.system.measureTimeMillis
@@ -52,6 +53,10 @@ class CoroutinesUseCase {
             williamLog("total time of runWithAsync need to run: ${time1 + time2}")
         }
         williamLog("runWithAsync after")
+        //
+//        Single stream
+
+
     }
 
     private fun runWithGlobalAsync() {

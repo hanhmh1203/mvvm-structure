@@ -1,15 +1,11 @@
 package com.example.gear_kotlin.network
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStoreOwner
-import androidx.navigation.fragment.FragmentNavigator
-import androidx.navigation.fragment.FragmentNavigatorExtras
-import com.example.commons.base.BaseFragment
+import com.example.gear_kotlin.base.BaseFragment
 import com.example.commons.extension.getViewModel
 import com.example.gear_kotlin.databinding.FragmentHomeBinding
 import com.example.gear_kotlin.network.views.HomeAdapter

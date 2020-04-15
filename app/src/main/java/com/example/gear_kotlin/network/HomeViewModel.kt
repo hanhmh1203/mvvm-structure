@@ -45,11 +45,13 @@ class HomeViewModel @Inject constructor(
         withContext(dispatchers.io) {
             usersSource = getTopUsersUseCase()
         }
+
         _users.addSource(usersSource) {
             _users.value = it
             if (it.status == Resource.Status.ERROR) {
                 Log.i("hanhmh1203", "getUsers error")
             }
+
         }
     }
 }

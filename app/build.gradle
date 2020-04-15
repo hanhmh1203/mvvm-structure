@@ -68,6 +68,13 @@ dependencies {
     implementation Libraries.retrofit
     implementation Libraries.retrofitGsonConverter
     implementation AndroidLibraries.coreKtx
+    //event bus
+    implementation Libraries.eventBus
+    kapt Libraries.eventBusAnotation
 
-
+}
+kapt{
+    arguments {
+        arg('eventBusIndex', "${Constant.packageName}.MyEventBusIndex")
+    }
 }

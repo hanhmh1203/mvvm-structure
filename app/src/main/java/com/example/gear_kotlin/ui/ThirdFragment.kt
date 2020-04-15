@@ -5,12 +5,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.commons.Constant
-import com.example.commons.base.BaseFragment
+import com.example.gear_kotlin.base.BaseFragment
 import com.example.commons.extension.getViewModel
 import com.example.gear_kotlin.databinding.FragmentThirdBinding
 import com.example.gear_kotlin.viewmodel.ThirdFragmentViewModel
@@ -45,10 +43,10 @@ class ThirdFragment : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         viewModel = getViewModel(viewModelFactory)
         binding.viewModel = viewModel
         observe()
-
     }
     private fun observe(){
 //        viewModel.user.observe(viewLifecycleOwner, Observer {

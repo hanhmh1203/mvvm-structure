@@ -3,6 +3,7 @@ package com.example.local.dao
 import androidx.room.Dao
 import androidx.room.Query
 import com.example.model.UserGit
+import kotlinx.coroutines.flow.Flow
 import java.util.*
 
 @Dao
@@ -15,6 +16,9 @@ abstract class UserGitDao: BaseDao<UserGit> {
     abstract suspend fun getUser(login: String): UserGit
 
     // ---
+
+    // ---
+
 
     /**
      * Each time we save an user, we update its 'lastRefreshed' field

@@ -150,6 +150,10 @@ LiveData is an observable data holder class. LiveData is lifecycle-aware,
 meaning it respects the lifecycle of other app components, such as activities, fragments, or services. 
 This awareness ensures LiveData only updates app component observers that are in an active lifecycle state
 ```
+```
+1. MutableLiveData should be used only for notifying your UI when observing any data.
+2. MediatorLiveData merge multi LiveData (by addSource and removeSource)
+```
 
 ##### to understanding livedata: [link](https://blog.mindorks.com/understanding-livedata-in-android)
 ```
@@ -159,7 +163,7 @@ We have two ways to for set value for LiveData
 ```
 ##### example implement LiveData like above:
 ```
-in Viewmodel:
+in ViewModel:
 var toHome = MutableLiveData<Boolean>()
 fun toHome(){
         toHome.value = true
