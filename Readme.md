@@ -232,3 +232,23 @@ Example With post:
       )
     eventManager.post(MessageEvent(MessageEvent.REQUEST_MOOD_RATING_DONE, message))
 ```
+
+#### Coroutines
+![Coroutines](/images/coroutines.png)
+###### Coroutines offer main-safety
+```
+1. In ViewModel: using viewModelScope (viewModelScope.launch..)
+2. In Activity, Fragment: using lifecycleScope (lifecycleScope.launch..)
+3. Dispatchers already provide with DI
+```
+```
+Dispatchers.IO: This Dispatcher is used to execute long-running and blocking I/O operations
+Dispatchers.Main: Confines itself to the Main thread, and hence, only using one thread
+Dispatchers.Default: Using CPU, core of device
+Dispatchers.Unconfined: shouldn't normally be used in code.
+```
+```
+launch (scope.launch): return Unit()
+async (scope.async): return a Deferred<T>
+```
+###### File example Coroutines: [CoroutinesUseCase.kt](app/src/main/java/com/example/gear_kotlin/network/domain/CoroutinesUseCase.kt)

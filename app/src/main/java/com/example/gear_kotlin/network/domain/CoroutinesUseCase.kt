@@ -149,4 +149,7 @@ class CoroutinesUseCase {
 
         williamLog("Coroutine scope is over") // This line is not printed until nested launch completes
     }
+    private fun testCoroutines(){
+        GlobalScope.launch()
+    }
 }
