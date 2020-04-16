@@ -25,24 +25,25 @@ import javax.inject.Inject
 class AppFirstFragment : BaseFragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.app_fragment_first, container, false)
     }
+
     @Inject
     lateinit var eventManager: EventManager
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val param1 = 101
         val param2 = this::class.java.name
-        val user= User(name = "hanhmh1203")
-        val  action =
+        val user = User(name = "hanhmh1203")
+        val action =
             AppFirstFragmentDirections
-            .actionFirstFragmentToSecondFragment(user)
-            .setParamInt(param1)
-            .setParamStr(param2)
+                .actionFirstFragmentToSecondFragment(user)
+                .setParamInt(param1)
+                .setParamStr(param2)
         view.findViewById<Button>(R.id.button_first).setOnClickListener {
             findNavController().navigate(action)
         }
@@ -50,8 +51,10 @@ class AppFirstFragment : BaseFragment() {
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
     fun onMessageEvent(event: MessageEvent) { /* Do something */
-        if(event.requestCode.equals(MessageEvent.REQUEST_MOOD_RATING_DONE))
-        williamLog("onMessageEvent")
+        if (event.requestCode.equals(MessageEvent.REQUEST_MOOD_RATING_DONE)) {
+            williamLog("onMessageEvent with data: ${event.message.data}")
+        }
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,6 +66,7 @@ class AppFirstFragment : BaseFragment() {
         super.onStop()
         eventManager.unregister(this)
     }
+
     override fun onResume() {
         super.onResume()
         BusLiveData.br.openSubscription()

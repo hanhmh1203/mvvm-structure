@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -19,6 +20,7 @@ import com.example.gear_kotlin.R
 import com.example.gear_kotlin.event.EventManager
 import com.example.gear_kotlin.event.MessageEvent
 import kotlinx.coroutines.channels.consumeEach
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -57,13 +59,20 @@ class AppSecondFragment : BaseFragment() {
         }
 
     }
+
     @Inject
     lateinit var eventManager: EventManager
 
     override fun onResume() {
         super.onResume()
         BusLiveData.br.openSubscription()
-        eventManager.post(MessageEvent(MessageEvent.REQUEST_MOOD_RATING_DONE, Message()))
+        val bundle = bundleOf(
+            Pair("arg1", "Arg1 From App Second Fragment"),
+            Pair("arg2", "Arg 2 From App Second Fragment")
+        )
+        val message = Message()
+        message.data = bundle
+        eventManager.post(MessageEvent(MessageEvent.REQUEST_MOOD_RATING_DONE, message))
     }
 
     override fun onPause() {
