@@ -3,6 +3,7 @@ package com.example.gear_kotlin.di.module
 import com.example.gear_kotlin.GearApplication
 import com.example.local.AppDatabase
 import com.example.commons.AppDispatchers
+import com.example.gear_kotlin.event.EventManager
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.Dispatchers
@@ -24,5 +25,10 @@ class AppModule {
             Dispatchers.IO,
             Dispatchers.Default
         )
+    }
+    @Singleton
+    @Provides
+    fun provideEventBus(): EventManager {
+        return EventManager.getSharedInstance()
     }
 }

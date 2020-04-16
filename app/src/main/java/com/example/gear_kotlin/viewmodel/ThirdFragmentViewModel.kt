@@ -20,6 +20,7 @@ class ThirdFragmentViewModel @Inject constructor(var repository: UserRepository,
     var users = MutableLiveData<List<User>>()
     var user = MutableLiveData<User>()
     var toHome = MutableLiveData<Boolean>()
+
     var i = 0
     init {
         toHome.value = false
