@@ -8,5 +8,6 @@ interface UserGitRepository {
     suspend fun getTopUsersWithCache(forceRefresh: Boolean = true): LiveData<Resource<List<UserGit>>>
     suspend fun getUserDetailWithCache(forceRefresh: Boolean = true, login: String): LiveData<Resource<UserGit>>
     suspend fun getTopUsersWithCacheNoDB(): LiveData<Resource<List<UserGit>>>
+    suspend fun getTopUsersWithCacheNoDBNoObject(): LiveData<Resource<List<UserGit>>>
 
 }

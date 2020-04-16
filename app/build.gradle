@@ -23,8 +23,6 @@ android {
         jvmTarget = "1.8"
     }
 
-
-
 }
 
 dependencies {
@@ -34,7 +32,6 @@ dependencies {
     implementation project(Modules.model)
     implementation project(Modules.localDatabase)
     implementation project(Modules.repository)
-
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     // ANDROID
@@ -71,6 +68,13 @@ dependencies {
     implementation Libraries.retrofit
     implementation Libraries.retrofitGsonConverter
     implementation AndroidLibraries.coreKtx
+    //event bus
+    implementation Libraries.eventBus
+    kapt Libraries.eventBusAnotation
 
-
+}
+kapt{
+    arguments {
+        arg('eventBusIndex', "${Constant.packageName}.MyEventBusIndex")
+    }
 }

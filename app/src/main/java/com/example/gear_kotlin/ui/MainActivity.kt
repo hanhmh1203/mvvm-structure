@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -19,30 +20,20 @@ import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 class MainActivity : DaggerAppCompatActivity() {
-    @Inject
-    lateinit var viewModel: ThirdFragmentViewModel
 
     @Inject
-    lateinit var viewModel1: ThirdFragmentViewModel
-
+    lateinit var viewModelFactory: ViewModelProvider.Factory
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
-
         CoroutinesUseCase().invoke()
-
     }
 
 
     override fun onResume() {
         super.onResume()
-//        viewModel.increaseI()
-//        viewModel.increaseI()
-//        viewModel.increaseI()
-//
-//
-//        viewModel1.increaseI()
+
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

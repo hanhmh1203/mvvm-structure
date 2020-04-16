@@ -13,6 +13,10 @@ object Modules {
     const val remote = ":remote"
 }
 
+object Constant {
+    const val packageName = "com.example.gear_kotlin"
+}
+
 object Releases {
     const val versionCode = 1
     const val versionName = "1.0"
@@ -54,24 +58,29 @@ object Versions {
     const val databinding = "3.3.2"
     const val googleServicesVersion = "4.3.3"
     const val daggerVersion = "2.27"
+    const val eventbus = "3.2.0"
 }
 
 object Libraries {
     // KOIN
     val koin = "org.koin:koin-android:${Versions.koin}"
     val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koin}"
+
     // ROOM
     val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
     val roomRunTime = "androidx.room:room-runtime:${Versions.room}"
     val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+
     // RETROFIT
-    val retrofitCoroutineAdapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.retrofitCoroutines}"
+    val retrofitCoroutineAdapter =
+        "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.retrofitCoroutines}"
     val gson = "com.google.code.gson:gson:${Versions.gson}"
     val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     val retrofitGsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofitGson}"
 
-    val retrofitOkHTTP ="com.squareup.okhttp3:okhttp:${Versions.okHttp}"
+    val retrofitOkHTTP = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
     val httpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
+
     // GLIDE
     val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
 
@@ -79,31 +88,40 @@ object Libraries {
 
     val dagger = "com.google.dagger:dagger:${Versions.daggerVersion}"
     val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.daggerVersion}"
-    val daggerAndroid ="com.google.dagger:dagger-android:${Versions.daggerVersion}"
+    val daggerAndroid = "com.google.dagger:dagger-android:${Versions.daggerVersion}"
     val daggerProcessor = "com.google.dagger:dagger-android-processor:${Versions.daggerVersion}"
     var daggerAndroidSupport = "com.google.dagger:dagger-android-support:${Versions.daggerVersion}"
+
+    //    eventBus
+    val eventBus = "org.greenrobot:eventbus:${Versions.eventbus}"
+    val eventBusAnotation = "org.greenrobot:eventbus-annotation-processor:${Versions.eventbus}"
 }
 
 object KotlinLibraries {
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
-    const val kotlinCoroutineCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val kotlinCoroutineCore =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
 }
 
 object AndroidLibraries {
     // KOTLIN
-    const val kotlinCoroutineAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    const val kotlinCoroutineAndroid =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+
     // ANDROID
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
-    const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
-    const val lifecycleViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val constraintLayout =
+        "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val lifecycleViewModel =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     const val navigation = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
     const val navigationFrag = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
     const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
-    const val liveDataKtx ="androidx.lifecycle:lifecycle-livedata-ktx:${Versions.liveDataKtx}"
+    const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.liveDataKtx}"
 
 }
 
@@ -115,15 +133,20 @@ object TestLibraries {
     val archCoreTest = "androidx.arch.core:core-testing:${Versions.archCoreTest}"
     val junit = "androidx.test.ext:junit:${Versions.androidJunit}"
     val fragmentNav = "androidx.fragment:fragment-testing:${Versions.fragmentTest}"
+
     // KOIN
     val koin = "org.koin:koin-test:${Versions.koin}"
+
     // MOCK WEBSERVER
     val mockWebServer = "com.squareup.okhttp:mockwebserver:${Versions.mockwebserver}"
+
     // MOCK
     val mockkAndroid = "io.mockk:mockk-android:${Versions.mockk}"
     val mockk = "io.mockk:mockk:${Versions.mockk}"
+
     // COROUTINE
     val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
+
     // DATA BINDING
     val databinding = "androidx.databinding:databinding-compiler:${Versions.databinding}"
 }
