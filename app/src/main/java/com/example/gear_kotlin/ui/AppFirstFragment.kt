@@ -49,7 +49,8 @@ class AppFirstFragment : BaseFragment() {
     }
 
     @Subscribe(threadMode = ThreadMode.BACKGROUND)
-    fun onMessageEvent(event: MessageEvent?) { /* Do something */
+    fun onMessageEvent(event: MessageEvent) { /* Do something */
+        if(event.requestCode.equals(MessageEvent.REQUEST_MOOD_RATING_DONE))
         williamLog("onMessageEvent")
     }
 
