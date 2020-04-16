@@ -66,12 +66,12 @@ class AppSecondFragment : BaseFragment() {
     override fun onResume() {
         super.onResume()
         BusLiveData.br.openSubscription()
-        val bundle = bundleOf(
+
+        val message = Message()
+        message.data = bundleOf(
             Pair("arg1", "Arg1 From App Second Fragment"),
             Pair("arg2", "Arg 2 From App Second Fragment")
         )
-        val message = Message()
-        message.data = bundle
         eventManager.post(MessageEvent(MessageEvent.REQUEST_MOOD_RATING_DONE, message))
     }
 

@@ -210,3 +210,25 @@ Define function call api in DataSource
         }
     }
 ```
+##### EventBus
+```
+1. Already add by Dagger
+2. @Inject EventManager for post and receive
+3. Define requestCode in MessaeEvent
+```
+```
+with receiver: register in onCreate, unregister in onStop
+  @Subscribe(threadMode = ThreadMode.BACKGROUND)
+    fun onMessageEvent(event: MessageEvent) { /* Do something */
+    } 
+    Can Subscribe with Main thread or Background.
+```
+```
+Example With post:
+    val message = Message()
+    message.data = bundleOf(
+        Pair("arg1", "Arg1 From App Second Fragment"),
+        Pair("arg2", "Arg 2 From App Second Fragment")
+      )
+    eventManager.post(MessageEvent(MessageEvent.REQUEST_MOOD_RATING_DONE, message))
+```
