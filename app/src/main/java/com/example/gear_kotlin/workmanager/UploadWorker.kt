@@ -19,15 +19,6 @@ class UploadWorker(appContext: Context, workerParams: WorkerParameters) :
                 (0..times).forEach {
                     delay(time)
                     williamLog("uploadWorker $it")
-
-                    withContext(Dispatchers.Main) {
-                        applicationContext.startActivity(
-                            Intent(
-                                applicationContext,
-                                MainActivity::class.java
-                            ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        )
-                    }
                 }
             }
 
