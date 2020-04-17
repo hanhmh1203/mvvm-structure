@@ -252,3 +252,26 @@ launch (scope.launch): return Unit()
 async (scope.async): return a Deferred<T>
 ```
 ###### File example Coroutines: [CoroutinesUseCase.kt](app/src/main/java/com/example/gear_kotlin/network/domain/CoroutinesUseCase.kt)
+#### WorkManager
+###### component
+```
+Worker, WorkRequest, WorkManager, WorkStatus
+```
+###### Workflow
+[WorkerUsercase.kt](app/src/main/java/com/example/gear_kotlin/usecase/WorkerUsercase.kt)
+
+[UploadWorker.kt](app/src/main/java/com/example/gear_kotlin/workmanager/UploadWorker.kt)
+```
+1. Create subclass of Worker -> Result Sucess, Failure, Retry
+2. Defines Contraints:  
+            .setRequiresBatteryNotLow(true)
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .setRequiresCharging(true)
+            .setRequiresStorageNotLow(true)
+            .setRequiresDeviceIdle(true)
+3. Create WorkRequest
+ - OneTimeWorkRequest to run work only one time.
+ - PeriodicWorkRequest  to run periodically,  set the interval between to subsequent work. (min in 15 minutes)
+4. Schedule the request 
+    WorkManager.getInstance().enqueue(request)  
+```

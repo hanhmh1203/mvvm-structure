@@ -1,23 +1,20 @@
 package com.example.gear_kotlin.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.commons.extension.williamLog
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
+import androidx.work.workDataOf
 import com.example.gear_kotlin.R
-import com.example.gear_kotlin.viewmodel.ThirdFragmentViewModel
-
+import com.example.gear_kotlin.usecase.WorkerUsercase
+import com.example.gear_kotlin.workmanager.UploadWorker
 import dagger.android.support.DaggerAppCompatActivity
 import io.philippeboisney.home.domain.CoroutinesUseCase
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
+
 
 class MainActivity : DaggerAppCompatActivity() {
 
@@ -28,6 +25,12 @@ class MainActivity : DaggerAppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         CoroutinesUseCase().invoke()
+//        var data= Data.Builder()
+//        data.putInt("times",2)
+//        data.putLong("delay_time",2000L)
+//        data.build()
+        WorkerUsercase()(applicationContext)
+
     }
 
 
@@ -35,6 +38,7 @@ class MainActivity : DaggerAppCompatActivity() {
         super.onResume()
 
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)

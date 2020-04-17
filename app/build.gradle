@@ -71,6 +71,8 @@ dependencies {
     //event bus
     implementation Libraries.eventBus
     kapt Libraries.eventBusAnotation
+    // workManager
+    implementation AndroidLibraries.workManager
 
 }
 kapt{
