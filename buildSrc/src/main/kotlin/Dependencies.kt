@@ -59,6 +59,7 @@ object Versions {
     const val googleServicesVersion = "4.3.3"
     const val daggerVersion = "2.27"
     const val eventbus = "3.2.0"
+    const val workVersion = "2.3.4"
 }
 
 object Libraries {
@@ -122,6 +123,7 @@ object AndroidLibraries {
     const val activityKtx = "androidx.activity:activity-ktx:${Versions.activityKtx}"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtx}"
     const val liveDataKtx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.liveDataKtx}"
+    const val workManager = "androidx.work:work-runtime-ktx:${Versions.workVersion}"
 
 }
 

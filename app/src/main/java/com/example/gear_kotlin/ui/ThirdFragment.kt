@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.gear_kotlin.base.BaseFragment
 import com.example.commons.extension.getViewModel
 import com.example.gear_kotlin.databinding.FragmentThirdBinding
 import com.example.gear_kotlin.viewmodel.ThirdFragmentViewModel
 import com.example.repository.UserRepository
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -29,24 +31,25 @@ class ThirdFragment : BaseFragment() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     lateinit var viewModel: ThirdFragmentViewModel
-
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = getViewModel(viewModelFactory)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentThirdBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
-
+        binding.viewModel = viewModel
         return binding.root
     }
 
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        viewModel = getViewModel(viewModelFactory)
-        binding.viewModel = viewModel
         observe()
+        lifecycleScope
     }
     private fun observe(){
 //        viewModel.user.observe(viewLifecycleOwner, Observer {
